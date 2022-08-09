@@ -2,7 +2,7 @@
   <table class="table table-striped">
     <thead class="table-dark">
         <tr>
-            <th scope="col">#</th>
+            
             <th scope="col">ID</th>
             <th scope="col">Libelle</th>
             <th scope="col">Prix</th>
@@ -11,13 +11,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let product of products; let i = index">
-        <th>{{i}}</th>
+        
         <th>{{product.id}}</th>
         <th>{{product.libelle}}</th>
         <th>{{product.prix}} DT</th>
         <th>
-          <span (click)="updateProduct(i)" > Update </span>
-          <span (click)="deleteProduct(product.id)" > Delete </span>
+          <span (click)="updateProduct(i)" > <button type="button" class="btn btn-outline-primary">Update</button> </span>
+          <span (click)="deleteProduct(product.id)" > <button type="button" class="btn btn-outline-danger">Delete</button> </span>
 
         </th>
       </tr>

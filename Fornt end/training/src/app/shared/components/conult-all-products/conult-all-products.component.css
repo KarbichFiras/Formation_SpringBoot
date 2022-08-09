@@ -5,3 +5,7 @@
 th span{
     cursor: pointer;
 }
+
+span button{
+    margin-right: 10%;
+}

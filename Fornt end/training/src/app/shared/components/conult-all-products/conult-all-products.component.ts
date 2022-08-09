@@ -13,28 +13,30 @@ export class ConultAllProductsComponent implements OnInit {
 
   products: Product[] = [];
 
-  constructor(private productService:ProductService, private sharedProductService: SharedProductService, private router: Router) { }
+  constructor(private productService: ProductService, private sharedProductService: SharedProductService, private router: Router) { }
 
   ngOnInit(): void {
     this.getProducts();
   }
 
-  getProducts(){
-   this.productService.getProducts().subscribe(products => {
-    this.products=products
-    // console.log(products)
-   }); 
+  getProducts() {
+    this.productService.getProducts().subscribe(products => {
+      this.products = products
+      // console.log(products)
+    });
   }
 
-  updateProduct(productIndex: number){
+  updateProduct(productIndex: number) {
     this.sharedProductService.set_selectedProduct(this.products[productIndex]);
     this.router.navigate(['/UpdateProduct']);
   }
 
-  deleteProduct(productId: number){
-    this.productService.deleteProduct(productId).subscribe(response => {
-      this.getProducts();
-    });
+  deleteProduct(productId: number) {
+    if (confirm("Do you want to delete this product ID° " + productId + " ?")) {
+      this.productService.deleteProduct(productId).subscribe(response => {
+        this.getProducts();
+      });
+    }
   }
 
 }
