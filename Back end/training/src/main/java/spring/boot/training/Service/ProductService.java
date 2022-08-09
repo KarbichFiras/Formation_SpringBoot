@@ -20,8 +20,7 @@ public class ProductService implements IProdouctService{
 	}
 
 	@Override
-	public Product updateProduct(Long productId, Product p) {
-		p.setId(productId);
+	public Product updateProduct(Product p) {
 		return productRepository.save(p);
 	}
 

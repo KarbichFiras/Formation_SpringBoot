@@ -1,0 +1,26 @@
+<div class="myContainer">
+  <table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Libelle</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Actions</th>
+          </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products; let i = index">
+        <th>{{i}}</th>
+        <th>{{product.id}}</th>
+        <th>{{product.libelle}}</th>
+        <th>{{product.prix}} DT</th>
+        <th>
+          <span (click)="updateProduct(i)" > Update </span>
+          <span (click)="deleteProduct(product.id)" > Delete </span>
+
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>

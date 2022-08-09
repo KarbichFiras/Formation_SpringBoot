@@ -3,6 +3,7 @@ package spring.boot.training.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import spring.boot.training.Entity.Product;
 import spring.boot.training.Service.IProdouctService;
 
 @RestController
+@CrossOrigin
 public class ProductRestController {
 
 	@Autowired
@@ -26,8 +28,8 @@ public class ProductRestController {
 	}
 
 	@PutMapping("/updateProduct")
-	public Product updateProduct(@RequestParam(name="productId") Long productId, @RequestBody Product p) {
-		return prodouctService.updateProduct(productId, p);
+	public Product updateProduct(@RequestBody Product p) {
+		return prodouctService.updateProduct(p);
 	}
 
 	@DeleteMapping("/deleteProduct")
